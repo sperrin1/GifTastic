@@ -82,14 +82,44 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL,
             method: 'GET'
+        })
+
+            .done(function(response) {
+                // search response from Giphy for new animal
+                var results = response.data;
+
+                for (var i = 0; i < results.length; i++) {
+
+                    var animalDiv = $('<div/>');
+
+                    var p = $('<p/>');
+
+                    p.text(results[i].rating);
+
+                    var animalImage = $('<img/>');
+
+                    animalImage.addClass('anImg')
+
+                    animalImage.attr('src', results[i].images.fixed_height_still.url);
+
+                    animalImage.attr('data-still', results[i].images.fixed_height_still.url)
+
+                    animalImage.attr('data-animate', results[i].images.fixed_height.url)
+
+                        .attr('data-state', 'still');
+
+                    animalDiv.append(p);
+
+                    animalDiv.append(animalImage);
+
+                    animalDiv.prependTo($('#gifs'));
+                }
+
         });
 
-        .done(function (response) {
+        $("#gif-input").val("");
+        return false;
 
-
-
-        });        
-
-    });
+    })
 
 });
