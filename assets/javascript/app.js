@@ -21,7 +21,7 @@ $(document).ready(function () {
 
                     var p = $('<p/>');
 
-                    p.text(results[i].rating);
+                    p.text('Rating: ' + results[i].rating);
 
                     var animalImage = $('<img/>');
 
@@ -56,7 +56,7 @@ $(document).ready(function () {
                         $(this).attr('src', $(this).data('still'));
 
                         $(this).attr('data-state', 'still');
-                    }
+                    };
                 });
             });
     });
@@ -129,7 +129,7 @@ $(document).ready(function () {
 
                     $(this).attr('data-state', 'still');
 
-                }
+                };
 
             });
 
