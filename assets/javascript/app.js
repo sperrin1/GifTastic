@@ -85,40 +85,59 @@ $(document).ready(function () {
             method: 'GET'
         })
 
-            .done(function (response) {
+        .done(function (response) {
 
-                var results = response.data;
+            var results = response.data;
 
-                for (var i = 0; i < results.length; i++) {
+            for (var i = 0; i < results.length; i++) {
 
-                    var animalDiv = $('<div/>');
+                var animalDiv = $('<div/>');
 
-                    var p = $('<p/>');
+                var p = $('<p/>');
 
-                    p.text(results[i].rating);
+                p.text(results[i].rating);
 
-                    var animalImage = $('<img/>');
+                var animalImage = $('<img/>');
 
-                    animalImage.addClass('anImg')
+                animalImage.addClass('anImg')
 
-                    animalImage.attr('src', results[i].images.fixed_height_still.url);
+                animalImage.attr('src', results[i].images.fixed_height_still.url);
 
-                    animalImage.attr('data-still', results[i].images.fixed_height_still.url)
+                animalImage.attr('data-still', results[i].images.fixed_height_still.url)
 
-                    animalImage.attr('data-animate', results[i].images.fixed_height.url)
+                animalImage.attr('data-animate', results[i].images.fixed_height.url)
 
-                    .attr('data-state', 'still');
+                .attr('data-state', 'still');
 
-                    animalDiv.append(p);
+                animalDiv.append(p);
 
-                    animalDiv.append(animalImage);
+                animalDiv.append(animalImage);
 
-                    animalDiv.prependTo($('#gifs'));
+                animalDiv.prependTo($('#gifs'));
+            }
+
+            $('.anImg').on('click', function () {
+
+                var state = $(this).attr('data-state');
+                console.log(this);
+
+                if (state == 'still') {
+
+                    $(this).attr('src', $(this).data('animate'));
+
+                    $(this).attr('data-state', 'animate');
+
+                } else {
+
+                    $(this).attr('src', $(this).data('still'));
+
+                    $(this).attr('data-state', 'still');
+
                 }
 
-
             });
-        $("#gif-input").val("");
-        return false;
-    })
+            $("#gif-input").val("");
+            return false;
+        })
+    });
 });
