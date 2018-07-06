@@ -33,8 +33,6 @@ $(document).ready(function () {
 
                     animalImage.attr('data-animate', results[i].images.fixed_height.url)
 
-                        .attr('data-state', 'still');
-
                     animalDiv.append(p);
 
                     animalDiv.append(animalImage);
@@ -106,8 +104,6 @@ $(document).ready(function () {
                 animalImage.attr('data-still', results[i].images.fixed_height_still.url)
 
                 animalImage.attr('data-animate', results[i].images.fixed_height.url)
-
-                .attr('data-state', 'still');
 
                 animalDiv.append(p);
 
