@@ -91,7 +91,7 @@ $(document).ready(function () {
 
             for (var i = 0; i < results.length; i++) {
 
-                var animalDiv = $('<div/>');
+                var animalDiv = $('<div/>', {'class':'col-sm-4'});
 
                 var p = $('<p/>');
 
