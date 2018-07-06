@@ -107,7 +107,7 @@ $(document).ready(function () {
 
                     animalImage.attr('data-animate', results[i].images.fixed_height.url)
 
-                        .attr('data-state', 'still');
+                    .attr('data-state', 'still');
 
                     animalDiv.append(p);
 
@@ -115,6 +115,7 @@ $(document).ready(function () {
 
                     animalDiv.prependTo($('#gifs'));
                 }
+
 
             });
         $("#gif-input").val("");
